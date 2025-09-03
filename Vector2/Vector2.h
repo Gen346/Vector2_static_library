@@ -38,7 +38,6 @@ struct Vector2
 		const float EPS = 1e-6f;
 
 		return std::fabs(x - rhs.x) < EPS && std::fabs(y - rhs.y) < EPS;
-		//For general comparing purposes.
 	}
 
 	friend inline std::ostream& operator<<(std::ostream& os, const Vector2& rhs)
