@@ -48,15 +48,15 @@ struct Vector2
 
 	void normalize()
 	{
-		float lenght = sqrtf(x * x + y * y);
+		float length = sqrtf(x * x + y * y);
 
-		if (lenght != 0)
+		if (length != 0)
 		{
-			x / lenght;
-			y / lenght;
+			x / length;
+			y / length;
 		}
 	}
-	float lenght() const
+	float length() const
 	{
 		return sqrtf(x * x + y * y);
 	}
