@@ -52,8 +52,8 @@ struct Vector2
 
 		if (length != 0)
 		{
-			x / length;
-			y / length;
+			x = x / length;
+			y = y / length;
 		}
 	}
 	float length() const
