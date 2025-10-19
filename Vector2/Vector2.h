@@ -49,6 +49,7 @@ struct Vector2
 	void normalize();
 
 	float length() const;
+
 };
 
 #endif // !VECTOR2_H
