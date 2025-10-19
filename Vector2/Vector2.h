@@ -46,20 +46,9 @@ struct Vector2
 		return os;
 	}
 
-	void normalize()
-	{
-		float length = sqrtf(x * x + y * y);
+	void normalize();
 
-		if (length != 0)
-		{
-			x / length;
-			y / length;
-		}
-	}
-	float length() const
-	{
-		return sqrtf(x * x + y * y);
-	}
+	float length() const;
 };
 
 #endif // !VECTOR2_H
