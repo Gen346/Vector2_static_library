@@ -39,11 +39,17 @@ struct Vector2
 		return dotP;
 	}
 
-	inline bool operator==(const Vector2& rhs) const // Eqality
+	inline bool operator==(const Vector2& rhs) const // Equality
 	{
 		const float EPS = 1e-6f;
 
 		return std::fabs(mX - rhs.mX) < EPS && std::fabs(mY - rhs.mY) < EPS;
+	}
+	inline bool operator!=(const Vector2& rhs) const // Not equal
+	{
+		const float EPS = 1e-6f;
+
+		return std::fabs(mX - rhs.mX) > EPS && std::fabs(mY - rhs.mY) > EPS;
 	}
 
 	friend inline std::ostream& operator<<(std::ostream& os, const Vector2& rhs) //Print Vector2
