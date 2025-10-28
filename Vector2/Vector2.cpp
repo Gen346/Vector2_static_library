@@ -2,16 +2,16 @@
 
 void Vector2::normalize()
 {
-	float length = sqrtf(x * x + y * y);
+	float length = sqrtf(mX * mX + mY * mY);
 
 	if (length != 0.0f)
 	{
-		x /= length;
-		y /= length;
+		mX /= length;
+		mY /= length;
 	}
 }
 
 float Vector2::length() const
 {
-	return sqrtf(x * x + y * y);
+	return sqrtf(mX * mX + mY * mY);
 }
