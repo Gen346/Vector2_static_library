@@ -7,42 +7,48 @@
 
 struct Vector2
 {
-	Vector2() : x(0), y(0) {};
-	Vector2(float x, float y) : x(x), y(y) {};
+	Vector2() : mX(0), mY(0) {};
+	Vector2(float mX, float mY) : mX(mX), mY(mY) {};
 
-	float x;
-	float y;
+	float mX;
+	float mY;
 
-	inline Vector2 operator+(const Vector2& rhs) const
+	inline Vector2 operator+(const Vector2& rhs) const // Addition
 	{
-		return { x + rhs.x, y + rhs.y };
+		return { mX + rhs.mX, mY + rhs.mY };
 	}
 
-	inline Vector2 operator-(const Vector2& rhs) const
+	inline Vector2 operator-(const Vector2& rhs) const // Subtraction
 	{
-		return { x - rhs.x, y - rhs.y };
+		return { mX - rhs.mX, mY - rhs.mY };
 	}
 
-	inline Vector2 operator*(float scalar) const
+	inline Vector2 operator*(float scalar) const // Scalar multiplication Vector2 * scalar
 	{
-		return { x * scalar, y * scalar };
+		return { mX * scalar, mY * scalar };
 	}
 
-	friend inline Vector2 operator*(float scalar, const Vector2& rhs)
+	friend inline Vector2 operator*(float scalar, const Vector2& rhs) // Scalar multiplication scalar * Vector2
 	{
-		return { scalar * rhs.x, scalar * rhs.y };
+		return { scalar * rhs.mX, scalar * rhs.mY };
+	}
+	inline float operator*(const Vector2& rhs) // Dot product
+	{
+		float dotP = mX * rhs.mX + mY * rhs.mY;
+
+		return dotP;
 	}
 
-	inline bool operator==(const Vector2& rhs) const
+	inline bool operator==(const Vector2& rhs) const // Eqality
 	{
 		const float EPS = 1e-6f;
 
-		return std::fabs(x - rhs.x) < EPS && std::fabs(y - rhs.y) < EPS;
+		return std::fabs(mX - rhs.mX) < EPS && std::fabs(mY - rhs.mY) < EPS;
 	}
 
-	friend inline std::ostream& operator<<(std::ostream& os, const Vector2& rhs)
+	friend inline std::ostream& operator<<(std::ostream& os, const Vector2& rhs) //Print Vector2
 	{
-		os << "(" << rhs.x << ", " << rhs.y << ")";
+		os << "(" << rhs.mX << ", " << rhs.mY << ")";
 		return os;
 	}
 
