@@ -32,6 +32,7 @@ struct Vector2
 	{
 		return { scalar * rhs.mX, scalar * rhs.mY };
 	}
+
 	inline float operator*(const Vector2& rhs) // Dot product
 	{
 		float dotP = mX * rhs.mX + mY * rhs.mY;
@@ -51,11 +52,23 @@ struct Vector2
 
 		return std::fabs(mX - rhs.mX) > EPS && std::fabs(mY - rhs.mY) > EPS;
 	}
+	operator double() // Upcast to double
+	{
+		(double)mX;
+		(double)mY;
+		return mX, mY;
+	}
 
 	friend inline std::ostream& operator<<(std::ostream& os, const Vector2& rhs) //Print Vector2
 	{
 		os << "(" << rhs.mX << ", " << rhs.mY << ")";
 		return os;
+	}
+
+	friend inline std::istream& operator>>(std::istream& is, Vector2& rhs) //Cin Vector2
+	{
+		is >> rhs.mX >> rhs.mY;
+		return is;
 	}
 
 	void normalize();
