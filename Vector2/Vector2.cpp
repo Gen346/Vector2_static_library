@@ -1,8 +1,9 @@
 #include "Vector2.h"
 
-void Vector2::normalize()
+template <typename T>
+void Vector2<T>::normalize()
 {
-	float length = sqrtf(mX * mX + mY * mY);
+	T length = sqrtf(mX * mX + mY * mY);
 
 	if (length != 0.0f)
 	{
@@ -11,7 +12,8 @@ void Vector2::normalize()
 	}
 }
 
-float Vector2::length() const
+template <typename T>
+T Vector2<T>::length() const
 {
 	return sqrtf(mX * mX + mY * mY);
 }

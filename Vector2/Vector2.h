@@ -5,13 +5,14 @@
 #include <cmath>
 #include <iostream>
 
+template <typename T>
 struct Vector2
 {
 	Vector2() : mX(0), mY(0) {};
-	Vector2(float mX, float mY) : mX(mX), mY(mY) {};
+	Vector2(T mX, T mY) : mX(mX), mY(mY) {};
 
-	float mX;
-	float mY;
+	T mX;
+	T mY;
 
 	inline Vector2 operator+(const Vector2& rhs) const // Addition
 	{
@@ -33,9 +34,9 @@ struct Vector2
 		return { scalar * rhs.mX, scalar * rhs.mY };
 	}
 
-	inline float operator*(const Vector2& rhs) // Dot product
+	inline T operator*(const Vector2& rhs) // Dot product
 	{
-		float dotP = mX * rhs.mX + mY * rhs.mY;
+		T dotP = mX * rhs.mX + mY * rhs.mY;
 
 		return dotP;
 	}
@@ -73,7 +74,7 @@ struct Vector2
 
 	void normalize();
 
-	float length() const;
+	T length() const;
 
 };
 
